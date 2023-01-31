@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SRT sign in</title>
+    <style>
+        body, input, select, button, label {
+            font-size: 12pt;
+        }
+        input, select {
+            width: 120pt;
+            max-width: 30vw;
+        }
+        button {
+            width: 120pt;
+        }
+        h2, button, input, select, label {
+            margin-bottom: 0pt;
+            margin-top: 0pt;
+            padding: 5pt 0pt;
+        }
+    </style>
+  </head>
+  <body>
+    <h2 id="ty">Hello! Sign in here.</h2>
+    <form action="javascript:void(0);" onsubmit="submitForm()">
+        <table>
+            <tr>
+                <td><label for="srt">SRT:</label></td>
+                <td><select id="srt" name="srt" required>
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="Jerry Ball">Jerry Ball</option>
+                    <option value="Greg Ballen">Greg Ballen</option>
+                    <option value="Melina Ferner">Melina Ferner</option>
+                    <option value="Nat Hurtig">Nat Hurtig</option>
+                    <option value="Angus McKee">Angus McKee</option>
+                    <option value="Andrew Orians">Andrew Orians</option>
+                    <option value="Tori Robinson">Tori Robinson</option>
+                    <option value="Elisa Simoni">Elisa Simoni</option>
+                </select></td>
+            </tr>
+            <tr>
+              <td><label for="name">Name:</label></td>
+              <td><input type="text" id="name" name="name" pattern=".*[a-zA-Z][a-zA-Z][a-zA-Z].*\s+[a-zA-Z][a-zA-Z][a-zA-Z].*" oninvalid="setCustomValidity('Please enter a valid first and last name (at least 3 letters each).')" onchange="try{setCustomValidity('')}catch(e){}" required><br></td>
+            </tr>
+            <tr>
+                <td><label for="course">Course code:</label></td>
+                <td><input type="text" id="course" name="course" pattern="^[a-zA-Z][a-zA-Z]+\s*[0-9][0-9][0-9](?:-*\s*[0-9][0-9]?)?$" oninvalid="setCustomValidity('Please enter a valid course code (2+ letters followed by 3 numbers).')" onchange="try{setCustomValidity('')}catch(e){}" required><br></td>
+              </tr>
+              <tr>
+                <td><label for="prof">Professor:</label></td>
+                <td><input type="text" id="prof" name="prof" pattern=".*[a-zA-Z][a-zA-Z][a-zA-Z].*" oninvalid="setCustomValidity('Please enter a valid name (at least 3 letters).')" onchange="try{setCustomValidity('')}catch(e){}" required><br></td>
+              </tr>
+              <tr>
+                <td><label for="format">Classroom or study room?</label></td>
+                <td><select id="format" name="format" required>
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="classroom">Classroom</option>
+                    <option value="study_room">Study room</option>
+                    <option value="other">Other</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td><label for="hours">Hours spent:</label></td>
+                <td><select id="hours" name="hours" required>
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="1">0-1</option>
+                    <option value="2">1-2</option>
+                    <option value="3">2+</option>
+                </select></td>
+              </tr>
+          </table>
+          <input type="submit">
+    </form>
+    <div style="color: red" id="error"></div>
+    <div>If you'd like to fill out an <i>optional</i> and <i>anonymous</i> eval of your tutoring experience, click <a href="https://forms.gle/k63f333evbdxgbMU9" target="_blank">here</a>.</div>
+    <script type="module">
+        const firebaseConfig = {
+            apiKey: "AIzaSyCZfaC1ptnq9Lmt1yAKd7X0bjx20odUI_s",
+            authDomain: "srt-sign-in.firebaseapp.com",
+            projectId: "srt-sign-in",
+            storageBucket: "srt-sign-in.appspot.com",
+            messagingSenderId: "1080754446682",
+            appId: "1:1080754446682:web:28834455ec0145e9d49363"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script defer src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SRT sign in admin page</title>
+    <style>
+        body, input, select, button, label {
+            font-size: 12pt;
+        }
+        input, select {
+            width: 120pt;
+            max-width: 30vw;
+        }
+        button {
+            width: 120pt;
+        }
+        h2, button, input, select, label {
+            margin-bottom: 0pt;
+            margin-top: 0pt;
+            padding: 5pt 0pt;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>ADMIN PAGE</h1>
+    <button type="button" onclick="firebase.auth().signOut()">Sign out</button><br>
+    <label for="numDays">Days in the past to download:</label>
+    <input type="number" id='numDays' min="0" value="7"><br>
+    <button type="button" onclick="downloadStuff()">Download data</button>
+    <div style="color: red" id="error"></div>
+    
+    <script type="module">
+        const firebaseConfig = {
+            apiKey: "AIzaSyCZfaC1ptnq9Lmt1yAKd7X0bjx20odUI_s",
+            authDomain: "srt-sign-in.firebaseapp.com",
+            projectId: "srt-sign-in",
+            storageBucket: "srt-sign-in.appspot.com",
+            messagingSenderId: "1080754446682",
+            appId: "1:1080754446682:web:28834455ec0145e9d49363"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script defer src="admin.js"></script>
+</body>
+</html>
