@@ -61,7 +61,7 @@ function downloadStuff() {
     text = "Name,Course,Professor,SRT,Format,Hours\n"
     categories = ['name', 'course', 'prof', 'srt', 'format', 'hours']
     console.log('startTime :>> ', startTime);
-    db.collection("sign-ins").where('timestamp', '>', startTime).orderBy('course').orderBy('prof').orderBy('name').orderBy('srt')
+    db.collection("sign-ins").where('timestamp', '>', startTime)
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
