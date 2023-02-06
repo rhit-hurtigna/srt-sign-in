@@ -57,7 +57,9 @@ function submitForm() {
         const specialColor = HSVtoRGB(h, 0.2, 1);
     
         document.querySelector('body').style.backgroundColor = specialColor;
+        document.querySelectorAll('input, select, label').forEach((e) => e.hidden = true);
         setTimeout(() => {
+            document.querySelectorAll('input, select, label').forEach((e) => e.hidden = false);
             document.querySelector('body').style.backgroundColor = '#ffffff';
             document.querySelector('#ty').innerHTML = 'Hello! Sign in here.';
             document.querySelector('input[type=submit]').value = 'Submit'
